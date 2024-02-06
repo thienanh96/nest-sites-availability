@@ -34,7 +34,7 @@ describe('AppE2E', () => {
       ]);
   });
 
-  it(`/GET sites-availability?priority=2`, () => {
+  it(`/GET sites-availability?priority=4`, () => {
     return request(app.getHttpServer())
       .get('/sites-availability?priority=4')
       .expect(200)
