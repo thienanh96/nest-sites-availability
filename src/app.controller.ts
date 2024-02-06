@@ -1,18 +1,18 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request } from './common/decorators';
-import { SiteAvailabilityDto } from './app.dto';
+import { OnlineSiteDto } from './app.dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('sites-availability')
-  async getSitesAvailability(
+  @Get('online-sites')
+  async getOnlineSites(
     @Request() request,
-    @Query() siteAvailabilityDto: SiteAvailabilityDto,
+    @Query() onlineSiteDto: OnlineSiteDto,
   ): Promise<any> {
     request.setTimeout(300000); // 5 min
-    return this.appService.getSitesAvailability(siteAvailabilityDto);
+    return this.appService.getOnlineSites(onlineSiteDto);
   }
 }

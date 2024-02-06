@@ -23,9 +23,9 @@ describe('AppE2E', () => {
     await app.init();
   });
 
-  it(`/GET sites-availability`, () => {
+  it(`/GET online-sites`, () => {
     return request(app.getHttpServer())
-      .get('/sites-availability')
+      .get('/online-sites')
       .expect(200)
       .expect([
         'http://app.scnt.me',
@@ -34,9 +34,9 @@ describe('AppE2E', () => {
       ]);
   });
 
-  it(`/GET sites-availability?priority=4`, () => {
+  it(`/GET online-sites?priority=4`, () => {
     return request(app.getHttpServer())
-      .get('/sites-availability?priority=4')
+      .get('/online-sites?priority=4')
       .expect(200)
       .expect(['https://gitlab.com', 'https://github.com']);
   });

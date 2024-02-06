@@ -51,9 +51,7 @@ describe('AppService', () => {
       .spyOn(dataLayerService, 'getSites')
       .mockImplementation(() => mockSites);
 
-    expect(
-      await appService.getSitesAvailability({ priority: undefined }),
-    ).toEqual([
+    expect(await appService.getOnlineSites({ priority: undefined })).toEqual([
       'https://gitlab.com',
       'https://github.com',
       'http://app.scnt.me',
@@ -67,7 +65,7 @@ describe('AppService', () => {
       .spyOn(dataLayerService, 'getSites')
       .mockImplementation(() => mockSites);
 
-    expect(await appService.getSitesAvailability({ priority: 3 })).toEqual([
+    expect(await appService.getOnlineSites({ priority: 3 })).toEqual([
       'https://gitlab.com',
       'https://github.com',
       'http://app.scnt.me',

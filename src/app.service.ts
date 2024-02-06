@@ -1,5 +1,5 @@
 import { Inject, Injectable, forwardRef } from '@nestjs/common';
-import { SiteAvailabilityDto } from './app.dto';
+import { OnlineSiteDto } from './app.dto';
 import axios from 'axios';
 import { DataLayerService } from './dataLayer.service';
 
@@ -11,12 +11,12 @@ export class AppService {
   ) {}
 
   /**
-   * Get the availability (online/offline) of sites
+   * Get url of online sites
    *
    * @param priority Filter by priority
    * @returns List of online site urls as an array of string
    */
-  async getSitesAvailability({ priority }: SiteAvailabilityDto) {
+  async getOnlineSites({ priority }: OnlineSiteDto) {
     const urls = await Promise.all(
       this.dataLayerService.getSites({ priority }).map(async ({ url }) => {
         try {
